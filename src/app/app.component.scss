@@ -1,0 +1,87 @@
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-color: #43796c;
+
+  h2 {
+    font-size: 1.5rem;
+    color: white;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+.error {
+  text-align: center;
+  background-color: #f8d7da;
+  padding: 1rem;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+
+  h2 {
+    color: #721c24;
+  }
+
+  p {
+    color: #856404;
+  }
+}
+
+.player-card,
+.ship-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+  }
+
+  span {
+    display: block;
+    font-size: 1rem;
+    color: #7f8c8d;
+  }
+}
+
+button {
+  background-color: #2980b9;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0.5rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #1c5987;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #3498db;
+  }
+}
+
+.winner {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: #27ae60;
+  text-align: center;
+}
