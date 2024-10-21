@@ -37,8 +37,4 @@ export class AppComponent {
   public downloadHistory() {
     downloadJSON(this.gameStore.history(), 'game_history');
   }
-
-  public logger(data: any) {
-    console.log(data);
-  }
 }

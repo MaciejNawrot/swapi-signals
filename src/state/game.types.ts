@@ -21,5 +21,5 @@ export type GameState = {
     playerTwo: { name: string; score: number; ship: string };
     winner: string;
   }>;
-  gameWinner?: string;
+  gameWinner: string;
 };
