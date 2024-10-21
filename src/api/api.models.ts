@@ -3,12 +3,12 @@ export enum ResourceMessage {
   NOT_FOUND = 'not found'
 }
 
-export type PlayerResponse = {
+export type PersonResponse = {
   message: ResourceMessage;
-  result: { properties: SwapiPlayer };
+  result: { properties: SwapiPerson };
 }
 
-export type SwapiPlayer = {
+export type SwapiPerson = {
   name: string;
   height: string;
   mass: string;

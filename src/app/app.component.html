@@ -1,9 +1,4 @@
-@if (isLoading()) {
-  <div class="loading">
-    <h2>Loading...</h2>
-  </div>
-}
-@else {
+@if (!isLoading()) {
   @if (error()) {
     <div class="error">
       <h2>Error</h2>
@@ -48,6 +43,10 @@
   }
 
   <button (click)="downloadHistory()">Pobierz historię gier</button>
+} @else {
+  <div class="loading">
+    <h2>Loading...</h2>
+  </div>
 }
 
 

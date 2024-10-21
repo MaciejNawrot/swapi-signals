@@ -27,13 +27,13 @@ export const GameStore = signalStore(
         tap(() => patchState(store, { ...initialState, isLoading: true })),
         switchMap(() => {
           return forkJoin({
-            firstRequest: apiService.getRandomPlayer(),
-            secondRequest: apiService.getRandomPlayer(),
+            firstRequest: apiService.getRandomPerson(),
+            secondRequest: apiService.getRandomPerson(),
           }).pipe(
             tapResponse({
               next: ({ firstRequest, secondRequest }) => {
                 if (firstRequest.message !== ResourceMessage.OK || secondRequest.message !== ResourceMessage.OK) {
-                  patchState(store, { error: { message: 'Error fetching players' } });
+                  patchState(store, { error: { message: 'Error fetching people with random ids' } });
                 }
 
                 const playerOne = {
@@ -51,7 +51,7 @@ export const GameStore = signalStore(
                 patchState(store, { playerOne, playerTwo});
               },
               error: () => {
-                patchState(store, { error: { message: 'Error fetching players' } });
+                patchState(store, { error: { message: 'SWAPI Server is not responding api/people' } });
               },
               finalize: () => patchState(store, { isLoading: false }),
             })
@@ -71,7 +71,7 @@ export const GameStore = signalStore(
             tapResponse({
               next: ({ firstShipRequest, secondShipRequest }) => {
                 if (firstShipRequest.message !== ResourceMessage.OK || secondShipRequest.message !== ResourceMessage.OK) {
-                  patchState(store, { error: { message: 'Error fetching ships' } });
+                  patchState(store, { error: { message: 'Error fetching ships with random ids' } });
                   return;
                 }
 
@@ -88,7 +88,7 @@ export const GameStore = signalStore(
                 patchState(store, { shipOne, shipTwo, });
               },
               error: () => {
-                patchState(store, { error: { message: 'Error fetching ships' } });
+                patchState(store, { error: { message: 'SWAPI Server is not responding api/starships' } });
               },
               finalize: () => patchState(store, { isLoading: false }),
             })
